@@ -1,0 +1,22 @@
+packages/opencode/src/cli/cmd/tui/component/vim/vim-handler.ts
+  s_aab21c3ecfb907::t_1618403d79ee81 1062-1071
+packages/opencode/test/cli/tui/vim-motions.test.ts
+  s_aab21c3ecfb907::t_2ec200f1df421e 1478-1536,1538-1540
+  s_aab21c3ecfb907::t_6cc8140271f1d9 1537
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "566368b9f5404f80aee0f9502b9ffaeb29b1a216",
+  "prompts": {},
+  "sessions": {
+    "s_aab21c3ecfb907": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1c9ce26bcffeIzOxVYvlL1IbaU",
+        "model": "qwen3.6-plus-free"
+      },
+      "human_author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    }
+  }
+}
