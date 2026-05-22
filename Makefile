@@ -1,4 +1,4 @@
-VERSION := $(shell git describe --tags --abbrev=0)
+VERSION := $(shell git describe --tags --abbrev=0)-xph
 CHANNEL := latest
 BUILD_DIR := packages/opencode
 INSTALL_DIR := $(HOME)/.local/bin/usr
