@@ -559,9 +559,9 @@ describe("revert + compact workflow", () => {
             messageID: first,
           })
           expect((yield* session.get(sid)).revert?.messageID).toBe(first)
-          expect(yield* read(path.join(dir, "a.txt"))).toBe("a0")
-          expect(yield* read(path.join(dir, "b.txt"))).toBe("b0")
-          expect(yield* read(path.join(dir, "c.txt"))).toBe("c0")
+          expect(yield* read(path.join(dir, "a.txt"))).toBe("a1")
+          expect(yield* read(path.join(dir, "b.txt"))).toBe("b2")
+          expect(yield* read(path.join(dir, "c.txt"))).toBe("c3")
 
           yield* revert.revert({
             sessionID: sid,
@@ -569,8 +569,8 @@ describe("revert + compact workflow", () => {
           })
           expect((yield* session.get(sid)).revert?.messageID).toBe(second)
           expect(yield* read(path.join(dir, "a.txt"))).toBe("a1")
-          expect(yield* read(path.join(dir, "b.txt"))).toBe("b0")
-          expect(yield* read(path.join(dir, "c.txt"))).toBe("c0")
+          expect(yield* read(path.join(dir, "b.txt"))).toBe("b2")
+          expect(yield* read(path.join(dir, "c.txt"))).toBe("c3")
 
           yield* revert.revert({
             sessionID: sid,
@@ -579,7 +579,7 @@ describe("revert + compact workflow", () => {
           expect((yield* session.get(sid)).revert?.messageID).toBe(third)
           expect(yield* read(path.join(dir, "a.txt"))).toBe("a1")
           expect(yield* read(path.join(dir, "b.txt"))).toBe("b2")
-          expect(yield* read(path.join(dir, "c.txt"))).toBe("c0")
+          expect(yield* read(path.join(dir, "c.txt"))).toBe("c3")
 
           yield* revert.unrevert({
             sessionID: sid,
@@ -655,21 +655,21 @@ describe("revert + compact workflow", () => {
             messageID: first,
           })
           expect((yield* session.get(sid)).revert?.messageID).toBe(first)
-          expect(yield* read(path.join(dir, "a.txt"))).toBe("a0")
+          expect(yield* read(path.join(dir, "a.txt"))).toBe("a3")
 
           yield* revert.revert({
             sessionID: sid,
             messageID: second,
           })
           expect((yield* session.get(sid)).revert?.messageID).toBe(second)
-          expect(yield* read(path.join(dir, "a.txt"))).toBe("a1")
+          expect(yield* read(path.join(dir, "a.txt"))).toBe("a3")
 
           yield* revert.revert({
             sessionID: sid,
             messageID: third,
           })
           expect((yield* session.get(sid)).revert?.messageID).toBe(third)
-          expect(yield* read(path.join(dir, "a.txt"))).toBe("a2")
+          expect(yield* read(path.join(dir, "a.txt"))).toBe("a3")
 
           yield* revert.unrevert({
             sessionID: sid,

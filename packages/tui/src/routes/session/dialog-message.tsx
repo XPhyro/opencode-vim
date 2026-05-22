@@ -25,7 +25,7 @@ export function DialogMessage(props: {
         {
           title: "Revert",
           value: "session.revert",
-          description: "undo messages and file changes",
+          description: "undo messages",
           onSelect: (dialog) => {
             const msg = message()
             if (!msg) return
