@@ -395,7 +395,7 @@ const layer = Layer.effectDiscard(
       db
         .update(SessionTable)
         .set({
-          revert: { ...event.data.revert, files: event.data.revert.files ? [...event.data.revert.files] : undefined },
+          revert: event.data.revert,
           time_updated: DateTime.toEpochMillis(event.data.timestamp),
         })
         .where(eq(SessionTable.id, event.data.sessionID))
