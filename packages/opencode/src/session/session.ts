@@ -68,12 +68,10 @@ export function fromRow(row: SessionRow): Info {
       : undefined
   const share = row.share_url ? { url: row.share_url } : undefined
   const revert = row.revert
-    ? {
-        messageID: MessageID.make(row.revert.messageID),
-        partID: row.revert.partID ? PartID.make(row.revert.partID) : undefined,
-        snapshot: row.revert.snapshot,
-        diff: row.revert.diff,
-      }
+      ? {
+          messageID: MessageID.make(row.revert.messageID),
+          partID: row.revert.partID ? PartID.make(row.revert.partID) : undefined,
+        }
     : undefined
   return {
     id: row.id,
@@ -146,8 +144,6 @@ export function toRow(info: Info) {
       ? {
           messageID: SessionMessage.ID.make(info.revert.messageID),
           partID: info.revert.partID,
-          snapshot: info.revert.snapshot,
-          diff: info.revert.diff,
         }
       : null,
     permission: info.permission,
