@@ -17,8 +17,5 @@ export interface FileDiff extends Schema.Schema.Type<typeof FileDiff> {}
 export const State = Schema.Struct({
   messageID: SessionMessage.ID,
   partID: Schema.String.pipe(optional),
-  snapshot: Schema.String.pipe(optional),
-  diff: Schema.String.pipe(optional),
-  files: Schema.Array(FileDiff).pipe(optional),
 }).annotate({ identifier: "Revert.State" })
 export interface State extends Schema.Schema.Type<typeof State> {}

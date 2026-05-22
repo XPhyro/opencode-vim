@@ -172,19 +172,7 @@ function sanitize(data: { info: Session.Info; messages: SessionV1.WithParts[] })
             ...data.info.summary,
             diffs: diff("session-diff", data.info.summary.diffs),
           },
-      revert: !data.info.revert
-        ? data.info.revert
-        : {
-            ...data.info.revert,
-            snapshot:
-              data.info.revert.snapshot === undefined
-                ? undefined
-                : redact("revert-snapshot", data.info.id, data.info.revert.snapshot),
-            diff:
-              data.info.revert.diff === undefined
-                ? undefined
-                : redact("revert-diff", data.info.id, data.info.revert.diff),
-          },
+      revert: data.info.revert,
     },
     messages: data.messages.map((msg) => ({
       info:
