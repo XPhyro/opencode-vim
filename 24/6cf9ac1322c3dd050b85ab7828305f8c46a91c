@@ -1,0 +1,19 @@
+Makefile
+  s_9b8c191cf19e35::t_08e8ff93e2d617 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "246cf9ac1322c3dd050b85ab7828305f8c46a91c",
+  "prompts": {},
+  "sessions": {
+    "s_9b8c191cf19e35": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1ad85fd74ffe6Lymrk5ur32xd3",
+        "model": "deepseek-v4-flash-free"
+      },
+      "human_author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    }
+  }
+}
