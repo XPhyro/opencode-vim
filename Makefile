@@ -19,6 +19,7 @@ version:
 build: $(BINARY)
 
 $(BINARY): node_modules
+	bun install
 	cd $(BUILD_DIR) && \
 	OPENCODE_CHANNEL=$(CHANNEL) OPENCODE_VERSION=$(VERSION) \
 	bun run build --single --skip-install
