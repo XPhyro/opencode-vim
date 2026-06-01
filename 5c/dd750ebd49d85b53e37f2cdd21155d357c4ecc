@@ -1,0 +1,27 @@
+packages/opencode/src/cli/cmd/tui/routes/session/dialog-message.tsx
+  s_7709dfcc71d22a::t_d676e42fe0c355 27
+packages/opencode/src/session/revert.ts
+  s_7709dfcc71d22a::t_5c45ff7adadc64 49,51-55,58
+packages/opencode/test/session/revert-compact.test.ts
+  s_7709dfcc71d22a::t_59d151226aa9ab 520
+  s_7709dfcc71d22a::t_c4c5ae8d865a74 521-522,530-531,540
+  s_7709dfcc71d22a::t_01db75961de0c0 616,623,630
+packages/opencode/src/cli/cmd/export.ts
+  s_7709dfcc71d22a::t_670b4fea09bdb9 175
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "5cdd750ebd49d85b53e37f2cdd21155d357c4ecc",
+  "prompts": {},
+  "sessions": {
+    "s_7709dfcc71d22a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1b2e968b3ffePS1WWhL7nNk3uR",
+        "model": "deepseek-v4-flash-free"
+      },
+      "human_author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    }
+  }
+}
