@@ -1,0 +1,31 @@
+Makefile
+  s_aab21c3ecfb907::t_9cb8bf8fe5f53d 2-8,11-14,16,24,26,30-36
+  s_aab21c3ecfb907::t_5270dca531ab19 9-10,15,18-21,27-28
+  s_aab21c3ecfb907::t_cc4e2904a8386f 23,25
+  s_aab21c3ecfb907::t_ea72feddde5f7f 29
+  s_9b8c191cf19e35::t_08e8ff93e2d617 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "965261ccaa45dd84b5768e70b5c33db27dd5ba09",
+  "prompts": {},
+  "sessions": {
+    "s_9b8c191cf19e35": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1ad85fd74ffe6Lymrk5ur32xd3",
+        "model": "deepseek-v4-flash-free"
+      },
+      "human_author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    },
+    "s_aab21c3ecfb907": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1c9ce26bcffeIzOxVYvlL1IbaU",
+        "model": "qwen3.6-plus-free"
+      },
+      "human_author": null
+    }
+  }
+}
