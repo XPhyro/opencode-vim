@@ -1,0 +1,22 @@
+Makefile
+  s_aab21c3ecfb907::t_9cb8bf8fe5f53d 2-8,11-14,16,23,25,29-35
+  s_aab21c3ecfb907::t_5270dca531ab19 9-10,15,18-21,26-27
+  s_aab21c3ecfb907::t_cc4e2904a8386f 22,24
+  s_aab21c3ecfb907::t_ea72feddde5f7f 28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "f635aac384fd71d1dda215da66e943a44e98af97",
+  "prompts": {},
+  "sessions": {
+    "s_aab21c3ecfb907": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1c9ce26bcffeIzOxVYvlL1IbaU",
+        "model": "qwen3.6-plus-free"
+      },
+      "human_author": null
+    }
+  }
+}
