@@ -69,7 +69,7 @@ type PromptInput = {
   theme: Accessor<RunFooterTheme>
   history?: RunPrompt[]
   onSubmit: (input: RunPrompt) => boolean | Promise<boolean>
-  onCycle: () => void
+  onCycle: (direction?: 1 | -1) => void
   onInterrupt: () => boolean
   onEditorOpen: (input: { value: string }) => Promise<string | undefined>
   onInputClear: () => void

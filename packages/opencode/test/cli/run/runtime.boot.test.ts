@@ -63,6 +63,7 @@ function config(input?: {
   bindings?: Partial<{
     commandList: string[]
     variantCycle: string[]
+    variantCycleReverse: string[]
     interrupt: string[]
     historyPrevious: string[]
     historyNext: string[]
@@ -79,6 +80,7 @@ function config(input?: {
       ...(input?.leader && { leader: input.leader }),
       ...(bind?.commandList && { command_list: bind.commandList }),
       ...(bind?.variantCycle && { variant_cycle: bind.variantCycle }),
+      ...(bind?.variantCycleReverse && { variant_cycle_reverse: bind.variantCycleReverse }),
       ...(bind?.interrupt && { session_interrupt: bind.interrupt }),
       ...(bind?.historyPrevious && { history_previous: bind.historyPrevious }),
       ...(bind?.historyNext && { history_next: bind.historyNext }),
@@ -101,6 +103,7 @@ describe("run runtime boot", () => {
         bindings: {
           commandList: ["ctrl+p"],
           variantCycle: ["ctrl+t", "alt+t"],
+          variantCycleReverse: ["ctrl+shift+t"],
           interrupt: ["ctrl+c"],
           historyPrevious: ["k"],
           historyNext: ["j"],
@@ -117,6 +120,7 @@ describe("run runtime boot", () => {
     expect(result.leader_timeout).toBe(2000)
     expect(result.keybinds.get("command.palette.show")?.[0]?.key).toBe("ctrl+p")
     expect(result.keybinds.get("variant.cycle").map((item) => item.key)).toEqual(["ctrl+t", "alt+t"])
+    expect(result.keybinds.get("variant.cycle.reverse")?.[0]?.key).toBe("ctrl+shift+t")
     expect(result.keybinds.get("session.interrupt")?.[0]?.key).toBe("ctrl+c")
     expect(result.keybinds.get("prompt.history.previous")?.[0]?.key).toBe("k")
     expect(result.keybinds.get("prompt.history.next")?.[0]?.key).toBe("j")
