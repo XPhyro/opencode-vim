@@ -116,6 +116,7 @@ const appBindingCommands = [
   "agent.cycle",
   "agent.cycle.reverse",
   "variant.cycle",
+  "variant.cycle.reverse",
   "variant.list",
   "provider.connect",
   "console.org.switch",
@@ -710,7 +711,16 @@ function App(props: { onSnapshot?: () => Promise<string[]>; pluginHost: TuiPlugi
         title: "Variant cycle",
         category: "Agent",
         run: () => {
-          local.model.variant.cycle()
+          local.model.variant.cycle(1)
+        },
+      },
+      {
+        name: "variant.cycle.reverse",
+        title: "Variant cycle reverse",
+        category: "Agent",
+        hidden: true,
+        run: () => {
+          local.model.variant.cycle(-1)
         },
       },
       {

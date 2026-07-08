@@ -266,14 +266,14 @@ async function runInteractiveRuntime(input: RunRuntimeInput, deps: RunRuntimeDep
 
       await ctx.sdk.question.reject(next)
     },
-    onCycleVariant: () => {
+    onCycleVariant: (direction: 1 | -1 = 1) => {
       if (!state.model || state.variants.length === 0) {
         return {
           status: "no variants available",
         }
       }
 
-      state.activeVariant = cycleVariant(state.activeVariant, state.variants)
+      state.activeVariant = cycleVariant(state.activeVariant, state.variants, direction)
       saveVariant(state.model, state.activeVariant)
       return {
         status: state.activeVariant ? `variant ${state.activeVariant}` : "variant default",

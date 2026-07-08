@@ -19,6 +19,7 @@ type CommandEntry =
   | (PanelEntry & { action: "queued" })
   | (PanelEntry & { action: "subagent" })
   | (PanelEntry & { action: "variant.cycle" })
+  | (PanelEntry & { action: "variant.cycle.reverse" })
   | (PanelEntry & { action: "variant.list" })
   | (PanelEntry & { action: "slash"; name: string })
   | (PanelEntry & { action: "exit" })
@@ -338,6 +339,7 @@ export function RunCommandMenuBody(props: {
   queued: Accessor<FooterQueuedPrompt[]>
   variants: Accessor<string[]>
   variantCycle: string
+  variantCycleReverse: string
   onClose: () => void
   onModel: () => void
   onEditor: () => void
@@ -346,6 +348,7 @@ export function RunCommandMenuBody(props: {
   onQueued: () => void
   onVariant: () => void
   onVariantCycle: () => void
+  onVariantCycleReverse: () => void
   onCommand: (name: string) => void
   onNew: () => void
   onExit: () => void
@@ -429,6 +432,13 @@ export function RunCommandMenuBody(props: {
         footer: props.variantCycle,
         keywords: "variant cycle",
       },
+      {
+        action: "variant.cycle.reverse",
+        category: "Agent",
+        display: "Variant cycle reverse",
+        footer: props.variantCycleReverse,
+        keywords: "variant cycle reverse previous",
+      },
       ...(props.variants().length > 0
         ? [
             {
@@ -496,6 +506,11 @@ export function RunCommandMenuBody(props: {
 
     if (item.action === "variant.cycle") {
       props.onVariantCycle()
+      return
+    }
+
+    if (item.action === "variant.cycle.reverse") {
+      props.onVariantCycleReverse()
       return
     }
 

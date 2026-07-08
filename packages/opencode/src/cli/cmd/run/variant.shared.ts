@@ -58,21 +58,22 @@ export function formatModelLabel(
   return `${names.model} · ${names.provider}${label}`
 }
 
-export function cycleVariant(current: string | undefined, variants: string[]): string | undefined {
+export function cycleVariant(current: string | undefined, variants: string[], direction: 1 | -1 = 1): string | undefined {
   if (variants.length === 0) {
     return undefined
   }
 
   if (!current) {
-    return variants[0]
+    return direction === 1 ? variants[0] : variants[variants.length - 1]
   }
 
   const idx = variants.indexOf(current)
-  if (idx === -1 || idx === variants.length - 1) {
+  if (idx === -1) {
     return undefined
   }
 
-  return variants[idx + 1]
+  const next = idx + direction
+  return next < 0 || next >= variants.length ? undefined : variants[next]
 }
 
 export function pickVariant(model: RunInput["model"], input: RunSession | SessionMessages): string | undefined {

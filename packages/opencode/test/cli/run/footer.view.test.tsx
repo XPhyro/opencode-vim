@@ -375,6 +375,7 @@ test("direct command panel renders grouped command palette", async () => {
           queued={() => []}
           variants={variants}
           variantCycle="ctrl+t"
+          variantCycleReverse="ctrl+shift+t"
           onClose={() => {}}
           onModel={() => {}}
           onEditor={() => {}}
@@ -383,6 +384,7 @@ test("direct command panel renders grouped command palette", async () => {
           onQueued={() => {}}
           onVariant={() => {}}
           onVariantCycle={() => {}}
+          onVariantCycleReverse={() => {}}
           onCommand={() => {}}
           onNew={() => {}}
           onExit={() => {}}
@@ -516,6 +518,7 @@ test("direct command panel shows subagent entry when available", async () => {
           queued={() => []}
           variants={variants}
           variantCycle="ctrl+t"
+          variantCycleReverse="ctrl+shift+t"
           onClose={() => {}}
           onModel={() => {}}
           onEditor={() => {}}
@@ -524,6 +527,7 @@ test("direct command panel shows subagent entry when available", async () => {
           onQueued={() => {}}
           onVariant={() => {}}
           onVariantCycle={() => {}}
+          onVariantCycleReverse={() => {}}
           onCommand={() => {}}
           onNew={() => {}}
           onExit={() => {}}
@@ -564,6 +568,7 @@ test("direct command panel keeps completed subagents available", async () => {
           queued={() => []}
           variants={variants}
           variantCycle="ctrl+t"
+          variantCycleReverse="ctrl+shift+t"
           onClose={() => {}}
           onModel={() => {}}
           onEditor={() => {}}
@@ -572,6 +577,7 @@ test("direct command panel keeps completed subagents available", async () => {
           onQueued={() => {}}
           onVariant={() => {}}
           onVariantCycle={() => {}}
+          onVariantCycleReverse={() => {}}
           onCommand={() => {}}
           onNew={() => {}}
           onExit={() => {}}

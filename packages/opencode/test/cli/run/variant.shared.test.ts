@@ -141,6 +141,13 @@ describe("run variant shared", () => {
     expect(cycleVariant(undefined, [])).toBeUndefined()
   })
 
+  test("cycles through variants in reverse", () => {
+    expect(cycleVariant(undefined, ["low", "high"], -1)).toBe("high")
+    expect(cycleVariant("high", ["low", "high"], -1)).toBe("low")
+    expect(cycleVariant("low", ["low", "high"], -1)).toBeUndefined()
+    expect(cycleVariant(undefined, [], -1)).toBeUndefined()
+  })
+
   test("formats model labels", () => {
     expect(formatModelLabel(model, undefined)).toBe("gpt-5 · openai")
     expect(formatModelLabel(model, "high")).toBe("gpt-5 · openai · high")
