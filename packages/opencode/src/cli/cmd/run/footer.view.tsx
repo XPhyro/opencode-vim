@@ -96,7 +96,7 @@ type RunFooterViewProps = {
   onPermissionReply: (input: PermissionReply) => void | Promise<void>
   onQuestionReply: (input: QuestionReply) => void | Promise<void>
   onQuestionReject: (input: QuestionReject) => void | Promise<void>
-  onCycle: () => void
+  onCycle: (direction?: 1 | -1) => void
   onInterrupt: () => boolean
   onBackground?: () => void
   onEditorOpen: (input: { value: string }) => Promise<string | undefined>
@@ -228,6 +228,15 @@ export function RunFooterView(props: RunFooterViewProps) {
     (keymap: OpenTuiKeymap) =>
       formatKeyBindings(
         keymap.getCommandBindings({ visibility: "registered", commands: ["variant.cycle"] }).get("variant.cycle"),
+        props.tuiConfig,
+      ) ?? "",
+  )
+  const variantCycleReverse = useKeymapSelector(
+    (keymap: OpenTuiKeymap) =>
+      formatKeyBindings(
+        keymap
+          .getCommandBindings({ visibility: "registered", commands: ["variant.cycle.reverse"] })
+          .get("variant.cycle.reverse"),
         props.tuiConfig,
       ) ?? "",
   )
@@ -511,12 +520,19 @@ export function RunFooterView(props: RunFooterViewProps) {
         name: "variant.cycle",
         title: "Cycle model variant",
         category: "Model",
-        run: props.onCycle,
+        run: () => props.onCycle(1),
+      },
+      {
+        name: "variant.cycle.reverse",
+        title: "Cycle model variant reverse",
+        category: "Model",
+        run: () => props.onCycle(-1),
       },
     ],
     bindings: [
       ...props.tuiConfig.keybinds.get("command.palette.show"),
       ...props.tuiConfig.keybinds.get("variant.cycle"),
+      ...props.tuiConfig.keybinds.get("variant.cycle.reverse"),
     ],
   }))
 
@@ -710,6 +726,7 @@ export function RunFooterView(props: RunFooterViewProps) {
                             queued={queuedPrompts}
                             variants={props.variants}
                             variantCycle={variantCycle()}
+                            variantCycleReverse={variantCycleReverse()}
                             onClose={closePanel}
                             onModel={openModel}
                             onEditor={() => {
@@ -721,7 +738,11 @@ export function RunFooterView(props: RunFooterViewProps) {
                             onQueued={openQueuedMenu}
                             onVariant={openVariant}
                             onVariantCycle={() => {
-                              props.onCycle()
+                              props.onCycle(1)
+                              closePanel()
+                            }}
+                            onVariantCycleReverse={() => {
+                              props.onCycle(-1)
                               closePanel()
                             }}
                             onCommand={(name) => {

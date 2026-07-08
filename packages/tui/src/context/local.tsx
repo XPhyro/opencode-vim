@@ -387,20 +387,21 @@ export const { use: useLocal, provider: LocalProvider } = createSimpleContext({
             setModelStore("variant", key, value ?? "default")
             save()
           },
-          cycle() {
+          cycle(direction: 1 | -1 = 1) {
             const variants = this.list()
             if (variants.length === 0) return
             const current = this.current()
             if (!current) {
-              this.set(variants[0])
+              this.set(direction === 1 ? variants[0] : variants[variants.length - 1])
               return
             }
             const index = variants.indexOf(current)
-            if (index === -1 || index === variants.length - 1) {
+            if (index === -1) {
               this.set(undefined)
               return
             }
-            this.set(variants[index + 1])
+            const next = index + direction
+            this.set(next < 0 || next >= variants.length ? undefined : variants[next])
           },
         },
       }

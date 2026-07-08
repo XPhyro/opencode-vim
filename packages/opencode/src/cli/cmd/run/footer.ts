@@ -89,7 +89,7 @@ type RunFooterOptions = {
   onPermissionReply: (input: PermissionReply) => void | Promise<void>
   onQuestionReply: (input: QuestionReply) => void | Promise<void>
   onQuestionReject: (input: QuestionReject) => void | Promise<void>
-  onCycleVariant?: () => CycleResult | void
+  onCycleVariant?: (direction?: 1 | -1) => CycleResult | void
   onModelSelect?: (model: NonNullable<RunInput["model"]>) => CycleResult | void | Promise<CycleResult | void>
   onVariantSelect?: (variant: string | undefined) => CycleResult | void | Promise<CycleResult | void>
   onInterrupt?: () => void
@@ -791,8 +791,8 @@ export class RunFooter implements FooterApi {
     await this.options.onQuestionReject(input)
   }
 
-  private handleCycle = (): void => {
-    const result = this.options.onCycleVariant?.()
+  private handleCycle = (direction: 1 | -1 = 1): void => {
+    const result = this.options.onCycleVariant?.(direction)
     if (!result) {
       this.setNotice("no variants available")
       return
