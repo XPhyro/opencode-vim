@@ -323,7 +323,7 @@ export function Autocomplete(props: {
       // Get files from SDK
       const result = await sdk.client.v2.fs.find({
         query: baseQuery,
-        limit: "20",
+        limit: "80",
         location: {
           directory: input.location?.directory,
           workspace: input.location?.workspaceID ?? project.workspace.current(),
@@ -508,7 +508,7 @@ export function Autocomplete(props: {
           (obj) => obj.aliases?.join(" ") ?? "",
         ],
         threshold: store.visible === "@" ? 0.5 : 0,
-        limit: 10,
+        limit: 40,
         scoreFn: (objResults) => {
           const displayResult = objResults[0]
           let score = objResults.score
@@ -521,7 +521,7 @@ export function Autocomplete(props: {
       })
       .map((arr) => arr.obj)
 
-    return [...fuzziedNonFiles, ...fileOptions].slice(0, 10)
+    return [...fuzziedNonFiles, ...fileOptions].slice(0, 40)
   })
 
   createEffect(() => {
@@ -711,9 +711,9 @@ export function Autocomplete(props: {
 
   const height = createMemo(() => {
     const count = options().length || 1
-    if (!store.visible) return Math.min(10, count)
+    if (!store.visible) return Math.min(20, count)
     positionTick()
-    return Math.min(10, count, Math.max(1, props.anchor().y))
+    return Math.min(20, count, Math.max(1, props.anchor().y))
   })
 
   let scroll: ScrollBoxRenderable
