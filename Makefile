@@ -8,14 +8,13 @@ INSTALL_PATH := $(INSTALL_DIR)/ocv
 
 BINARY := $(BUILD_DIR)/dist/opencode-linux-x64/bin/opencode
 
-all: build install
+all: clean build install
 
 version:
 	@echo "VERSION=$(VERSION) CHANNEL=$(CHANNEL)"
 	@echo "BINARY=$(BINARY)"
 	@echo "INSTALL_PATH=$(INSTALL_PATH)"
 
-.PHONY: build
 build: $(BINARY)
 
 $(BINARY): node_modules
