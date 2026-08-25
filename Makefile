@@ -1,4 +1,6 @@
-VERSION := $(shell git describe --tags --abbrev=0)-xph
+# VERSION := $(shell git describe --tags --abbrev=0)-xph
+# see [Preview/beta channel builds still pin @opencode-ai/plugin to an unpublished synthetic version · Issue #42002 · anomalyco/opencode](https://github.com/anomalyco/opencode/issues/42002)
+VERSION := $(shell git describe --tags --abbrev=0 | sed -E 's/^([^ -]+)-ocv\..*/\1/')
 CHANNEL := latest
 BUILD_DIR := packages/opencode
 INSTALL_DIR := $(HOME)/.local/bin/usr
