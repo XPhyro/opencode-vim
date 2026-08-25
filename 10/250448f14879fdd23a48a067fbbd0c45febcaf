@@ -1,0 +1,36 @@
+packages/opencode/test/session/revert-compact.test.ts
+  s_7709dfcc71d22a::t_59d151226aa9ab 562
+  s_7709dfcc71d22a::t_c4c5ae8d865a74 563-564,572-573,582
+  s_7709dfcc71d22a::t_01db75961de0c0 658,665,672
+packages/opencode/src/cli/cmd/export.ts
+  s_7709dfcc71d22a::t_670b4fea09bdb9 175
+packages/tui/src/routes/session/dialog-message.tsx
+  s_7709dfcc71d22a::t_d676e42fe0c355 28
+packages/opencode/src/session/revert.ts
+  s_7709dfcc71d22a::t_5c45ff7adadc64 47,49-53,56
+  s_2f85018d05d8b7::t_9b3597f49babe1 130
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.3",
+  "base_commit_sha": "10250448f14879fdd23a48a067fbbd0c45febcaf",
+  "prompts": {},
+  "sessions": {
+    "s_2f85018d05d8b7": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_17dd60c24ffeGZp6gMtYXPgAl6",
+        "model": "deepseek-v4-flash-free"
+      },
+      "human_author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    },
+    "s_7709dfcc71d22a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1b2e968b3ffePS1WWhL7nNk3uR",
+        "model": "deepseek-v4-flash-free"
+      },
+      "human_author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    }
+  }
+}
