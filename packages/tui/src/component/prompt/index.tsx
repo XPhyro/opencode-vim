@@ -2260,7 +2260,7 @@ export function Prompt(props: PromptProps) {
               <box flexDirection="row" gap={1}>
                 <VimIndicator />
                 {props.hint ?? (
-                  <Show when={props.sessionID}>
+                  <Show when={props.sessionID} fallback={<text />}>
                     <box marginLeft={vimIndicator() ? 0 : 1}>
                       <text fg={theme.textMuted}>{location()?.directory ?? paths.cwd}</text>
                     </box>
