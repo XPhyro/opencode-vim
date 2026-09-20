@@ -1,0 +1,48 @@
+packages/tui/src/context/sync.tsx
+  s_91bfce97f15441::t_80cc992ffad461 114-125,156-159,338-340,342,347,350-361,364,387-392,394-395,400,405,614-643,645-663,671-677,691-769
+  s_91bfce97f15441::t_f1f86f30e89a72 678-690
+  s_91bfce97f15441::t_70cb03cfee7d0b 776-782
+packages/opencode/test/session/messages-pagination.test.ts
+  s_91bfce97f15441::t_70cb03cfee7d0b 294-333
+packages/opencode/src/server/routes/instance/httpapi/groups/session.ts
+  s_91bfce97f15441::t_e435f9f6bbb70a 47
+packages/sdk/js/src/gen/types.gen.ts
+  s_91bfce97f15441::t_8f9bb7e06bf208 2559-2560
+packages/sdk/js/src/v2/gen/sdk.gen.ts
+  s_91bfce97f15441::t_8f9bb7e06bf208 3713,3727
+packages/tui/src/util/locale.ts
+  s_91bfce97f15441::t_e435f9f6bbb70a 17-21
+packages/core/src/filesystem/search.ts
+  s_91bfce97f15441::t_e435f9f6bbb70a 8-9,65,90,92,113,158,176-177,226
+packages/sdk/js/src/v2/gen/types.gen.ts
+  s_91bfce97f15441::t_8f9bb7e06bf208 9768
+packages/tui/src/routes/session/index.tsx
+  s_91bfce97f15441::t_386290406d893a 1315-1317,1319-1323
+  s_91bfce97f15441::t_49dab5283e922e 1588
+  s_91bfce97f15441::t_9cdeb1c57b9395 482-531,862,875,887,899,912,925,936,947
+  s_91bfce97f15441::t_2d755504a42d5f 1430-1434
+packages/tui/src/routes/session/dialog-timeline.tsx
+  s_91bfce97f15441::t_e435f9f6bbb70a 20,35
+packages/opencode/src/server/routes/instance/httpapi/handlers/session.ts
+  s_91bfce97f15441::t_e435f9f6bbb70a 2,52,112-116,118,132-133,142-143
+packages/opencode/src/session/message-v2.ts
+  s_91bfce97f15441::t_e435f9f6bbb70a 29-30,100-103,108,435,437,440,443-445,450-453,473-475,479
+packages/sdk/openapi.json
+  s_91bfce97f15441::t_8f9bb7e06bf208 6136-6143
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "9e56e0e14065c28b83bccc982238ea043616d4dd",
+  "prompts": {},
+  "sessions": {
+    "s_91bfce97f15441": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f417b4bd5ffeU4dLlziFpUudtK",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    }
+  }
+}
