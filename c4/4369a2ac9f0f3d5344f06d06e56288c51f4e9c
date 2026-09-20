@@ -1,0 +1,26 @@
+packages/tui/test/session-child-prompt.test.tsx
+  s_e92c0b91d90376::t_9e3449746d1cfe 196-197
+  s_e92c0b91d90376::t_87f1f89cebc813 1-133,135-195,201-216
+  s_e92c0b91d90376::t_1fdb553089e4fa 200
+  s_e92c0b91d90376::t_bb0b2d3c048e28 134,198-199
+packages/tui/src/routes/session/index.tsx
+  s_e92c0b91d90376::t_cb9127caee6dae 237,241,244
+packages/tui/src/component/prompt/index.tsx
+  s_e92c0b91d90376::t_cb9127caee6dae 377-405,1385,1392-1393,1413,1429-1430,1489-1490,1512,1522,1524,1767,1773-1774,1777-1778,1780,1801-1802,2063,2081,2083,2088
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c44369a2ac9f0f3d5344f06d06e56288c51f4e9c",
+  "prompts": {},
+  "sessions": {
+    "s_e92c0b91d90376": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f54526531ffet47pi7byTfZe6z",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    }
+  }
+}

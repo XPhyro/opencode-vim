@@ -1,0 +1,14 @@
+Makefile
+  h_a388f643e885cd 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "207a4f618c26fc0fbfb9a79cbea5707424ef542f",
+  "prompts": {},
+  "humans": {
+    "h_a388f643e885cd": {
+      "author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    }
+  }
+}
