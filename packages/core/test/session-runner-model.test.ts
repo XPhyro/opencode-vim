@@ -175,7 +175,7 @@ describe("SessionRunnerModel", () => {
     }),
   )
 
-  it.effect("rejects an explicit unavailable Session variant during model resolution", () =>
+  it.effect("falls back to the model default for an unavailable Session variant", () =>
     Effect.gen(function* () {
       const catalog = model({ type: "aisdk", package: "@ai-sdk/openai", url: "https://openai.example/v1" })
       const session = SessionV2.Info.make({
@@ -193,15 +193,12 @@ describe("SessionRunnerModel", () => {
         location: { directory: AbsolutePath.make("/project") },
       })
 
-      const failure = yield* SessionRunnerModel.resolve(session, catalog).pipe(Effect.flip)
+      const resolved = yield* SessionRunnerModel.resolve(session, catalog)
 
-      expect(failure).toMatchObject({
-        _tag: "SessionRunnerModel.VariantUnavailableError",
-        providerID: "test-provider",
-        modelID: "test-model",
-        variant: "unknown",
+      expect(resolved.route.defaults.headers).toMatchObject({ "x-test": "header" })
+      expect(resolved.route.defaults.http?.body).toEqual({
+        custom_extension: { enabled: true },
       })
-      expect(failure.message).toBe("Variant unavailable for test-provider/test-model: unknown")
     }),
   )
 

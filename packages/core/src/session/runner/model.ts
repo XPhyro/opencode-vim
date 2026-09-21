@@ -104,17 +104,15 @@ const withDefaults = (model: ModelV2.Info, route: AnyRoute) => {
 const withVariant = (
   model: ModelV2.Info,
   variantID: ModelV2.VariantID | undefined,
-): Effect.Effect<ModelV2.Info, VariantUnavailableError> => {
+): Effect.Effect<ModelV2.Info> => {
   const id = variantID === "default" || variantID === undefined ? model.request.variant : variantID
   const variant = model.variants.find((item) => item.id === id)
   if (!variant && variantID !== undefined && variantID !== "default")
-    return Effect.fail(
-      new VariantUnavailableError({
-        providerID: model.providerID,
-        modelID: model.id,
-        variant: variantID,
-      }),
-    )
+    return Effect.logWarning("Session variant unavailable, falling back to model default", {
+      providerID: model.providerID,
+      modelID: model.id,
+      variant: variantID,
+    }).pipe(Effect.as(model))
   return Effect.succeed(
     variant
       ? produce(model, (draft) => {

@@ -119,6 +119,7 @@ const sessionBindingCommands = [
   "session.timeline",
   "session.fork",
   "session.compact",
+  "session.resume",
   "session.unshare",
   "session.undo",
   "session.redo",
@@ -683,6 +684,40 @@ export function Session() {
           modelID: selectedModel.modelID,
           providerID: selectedModel.providerID,
         })
+        dialog.clear()
+      },
+    },
+    {
+      title: "Resume session",
+      value: "session.resume",
+      category: "Session",
+      slash: {
+        name: "resume",
+      },
+      run: () => {
+        const status = sync.data.session_status?.[route.sessionID]
+        if (status?.type === "busy") {
+          dialog.clear()
+          return
+        }
+        const messages = sync.data.message[route.sessionID] ?? []
+        if (!messages.some((message) => message.role === "user")) {
+          dialog.clear()
+          return
+        }
+        void sdk.client.session
+          .resume(
+            {
+              sessionID: route.sessionID,
+            },
+            { throwOnError: true },
+          )
+          .catch((error) => {
+            toast.show({
+              message: errorMessage(error),
+              variant: "error",
+            })
+          })
         dialog.clear()
       },
     },

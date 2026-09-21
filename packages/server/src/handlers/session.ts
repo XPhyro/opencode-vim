@@ -370,6 +370,44 @@ export const SessionHandler = HttpApiBuilder.group(Api, "server.session", (handl
         }),
       )
       .handle(
+        "session.resume",
+        Effect.fn(function* (ctx) {
+          yield* session.resume(ctx.params.sessionID).pipe(
+            Effect.catchTag("Session.NotFoundError", (error) =>
+              Effect.fail(
+                new SessionNotFoundError({
+                  sessionID: error.sessionID,
+                  message: `Session not found: ${error.sessionID}`,
+                }),
+              ),
+            ),
+            Effect.catchIf(
+              (error) => !(error instanceof SessionNotFoundError),
+              (error) => {
+                const ref = `err_${crypto.randomUUID().slice(0, 8)}`
+                const detail =
+                  error instanceof Error && error.message
+                    ? error.message
+                    : typeof error === "object" && error !== null && "message" in error && typeof error.message === "string"
+                      ? error.message
+                      : String(error)
+                return Effect.logError("failed to resume session", { cause: error }).pipe(
+                  Effect.andThen(
+                    Effect.fail(
+                      new UnknownError({
+                        message: `Failed to resume session (${ref}): ${detail}`,
+                        ref,
+                      }),
+                    ),
+                  ),
+                )
+              },
+            ),
+          )
+          return HttpApiSchema.NoContent.make()
+        }),
+      )
+      .handle(
         "session.message",
         Effect.fn(function* (ctx) {
           const message = yield* session.message(ctx.params)

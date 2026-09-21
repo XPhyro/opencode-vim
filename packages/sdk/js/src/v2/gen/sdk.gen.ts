@@ -207,6 +207,8 @@ import type {
   SessionPromptResponses,
   SessionRevertErrors,
   SessionRevertResponses,
+  SessionResumeErrors,
+  SessionResumeResponses,
   SessionShareErrors,
   SessionShareResponses,
   SessionShellErrors,
@@ -349,6 +351,8 @@ import type {
   V2SessionHistoryResponses,
   V2SessionInterruptErrors,
   V2SessionInterruptResponses,
+  V2SessionResumeErrors,
+  V2SessionResumeResponses,
   V2SessionListErrors,
   V2SessionListResponses,
   V2SessionMessageErrors,
@@ -3940,6 +3944,38 @@ export class Session2 extends HeyApiClient {
   }
 
   /**
+   * Resume session
+   *
+   * Resume a session by continuing its turn loop. Resumes incomplete work; a clean idle session is a no-op.
+   */
+  public resume<ThrowOnError extends boolean = false>(
+    parameters: {
+      sessionID: string
+      directory?: string
+      workspace?: string
+    },
+    options?: Options<never, ThrowOnError>,
+  ) {
+    const params = buildClientParams(
+      [parameters],
+      [
+        {
+          args: [
+            { in: "path", key: "sessionID" },
+            { in: "query", key: "directory" },
+            { in: "query", key: "workspace" },
+          ],
+        },
+      ],
+    )
+    return (options?.client ?? this.client).post<SessionResumeResponses, SessionResumeErrors, ThrowOnError>({
+      url: "/session/{sessionID}/resume",
+      ...options,
+      ...params,
+    })
+  }
+
+  /**
    * Initialize session
    *
    * Analyze the current application and create an AGENTS.md file with project-specific agent configurations.
@@ -5790,6 +5826,25 @@ export class Session3 extends HeyApiClient {
     const params = buildClientParams([parameters], [{ args: [{ in: "path", key: "sessionID" }] }])
     return (options?.client ?? this.client).post<V2SessionInterruptResponses, V2SessionInterruptErrors, ThrowOnError>({
       url: "/api/session/{sessionID}/interrupt",
+      ...options,
+      ...params,
+    })
+  }
+
+  /**
+   * Resume session execution
+   *
+   * Resume execution for the session without creating a user message. Idle sessions start draining eligible work.
+   */
+  public resume<ThrowOnError extends boolean = false>(
+    parameters: {
+      sessionID: string
+    },
+    options?: Options<never, ThrowOnError>,
+  ) {
+    const params = buildClientParams([parameters], [{ args: [{ in: "path", key: "sessionID" }] }])
+    return (options?.client ?? this.client).post<V2SessionResumeResponses, V2SessionResumeErrors, ThrowOnError>({
+      url: "/api/session/{sessionID}/resume",
       ...options,
       ...params,
     })
