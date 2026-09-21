@@ -357,6 +357,22 @@ export const makeSessionGroup = <I extends HttpApiMiddleware.AnyId, S>(sessionLo
         ),
     )
     .add(
+      HttpApiEndpoint.post("session.resume", "/api/session/:sessionID/resume", {
+        params: { sessionID: Session.ID },
+        success: HttpApiSchema.NoContent,
+        error: [SessionNotFoundError, UnknownError],
+      })
+        .middleware(sessionLocationMiddleware)
+        .annotateMerge(
+          OpenApi.annotations({
+            identifier: "v2.session.resume",
+            summary: "Resume session execution",
+            description:
+              "Resume execution for the session without creating a user message. Idle sessions start draining eligible work.",
+          }),
+        ),
+    )
+    .add(
       HttpApiEndpoint.get("session.message", "/api/session/:sessionID/message/:messageID", {
         params: { sessionID: Session.ID, messageID: SessionMessage.ID },
         success: Schema.Struct({ data: SessionMessage.Message }),
