@@ -1,0 +1,62 @@
+packages/protocol/src/groups/session.ts
+  s_7701d57244a133::t_ac899f328ba81f 360-374
+  s_7701d57244a133::t_44dd7fd4bcd10f 359
+packages/opencode/src/server/routes/instance/httpapi/groups/session.ts
+  s_7701d57244a133::t_d694ae74c26f9e 93
+  s_7701d57244a133::t_c00e3bf0d7ed49 267-279
+packages/sdk/js/src/v2/gen/types.gen.ts
+  s_7701d57244a133::t_7a83ba62dcb3a3 9993-10026
+  s_7701d57244a133::t_5c9807129d70be 11988-12026
+packages/tui/test/session-resume.test.ts
+  s_7701d57244a133::t_646998455f655e 8,14
+  s_7701d57244a133::t_19c8c332a35748 1-7,9-13,15-30
+packages/tui/src/routes/session/index.tsx
+  s_7701d57244a133::t_d7e4d7bc993b51 698-702
+  s_7701d57244a133::t_e3017de72ed208 122
+  s_7701d57244a133::t_a3b3570cda086d 709-719
+  s_7701d57244a133::t_1b1ff9a4d72963 691-696,720-723
+  s_7701d57244a133::t_3e79f26ea7c7ac 703-708
+  s_7701d57244a133::t_71d76e603dc25e 697
+  s_7701d57244a133::t_6e38b28607b1c2 690
+packages/sdk/js/src/v2/gen/sdk.gen.ts
+  s_7701d57244a133::t_9f86f3a7e4e641 210-211
+  s_7701d57244a133::t_1390d12f8733a0 354-355
+  s_7701d57244a133::t_7f1a5884063e90 3947-3977
+  s_7701d57244a133::t_1dc64777a61a33 5835-5852
+  s_7701d57244a133::t_60b5ca9e60996c 3946
+  s_7701d57244a133::t_d8404eeb86eebf 5834
+packages/protocol/test/session-resume.test.ts
+  s_7701d57244a133::t_0952e280aae463 5
+  s_7701d57244a133::t_3b452799c27c13 1-4,6-17
+packages/server/src/handlers/session.ts
+  s_7701d57244a133::t_2cd4c06a87cc68 376-387,394-397,399-401,403-405
+  s_7701d57244a133::t_633ed2185c64e2 373-375,402,406-409
+  s_7701d57244a133::t_71b7ff7a311758 388-393,398
+  s_7701d57244a133::t_8766e04f181598 372
+packages/core/test/session-runner-model.test.ts
+  s_7701d57244a133::t_988b5a6e9b5909 178,196,198-200
+packages/tui/src/config/keybind.ts
+  s_7701d57244a133::t_6ddcea5a3a9f2c 102
+  s_7701d57244a133::t_f84764f813b64f 335
+packages/opencode/src/server/routes/instance/httpapi/handlers/session.ts
+  s_7701d57244a133::t_92a1be2e0f5f8b 439
+  s_7701d57244a133::t_48b97cdd97c418 243-248
+packages/core/src/session/runner/model.ts
+  s_7701d57244a133::t_187f000cdaeee0 107,111-115
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "104003a374d26e29fe0c4be2b9e1e099ffaf54fe",
+  "prompts": {},
+  "sessions": {
+    "s_7701d57244a133": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f3ee912abffe07qpO1HG6A1lf9",
+        "model": "muse-spark-1.3-contributor-free"
+      },
+      "human_author": "Berke Kocaoğlu <berke.kocaoglu@icloud.com>"
+    }
+  }
+}
